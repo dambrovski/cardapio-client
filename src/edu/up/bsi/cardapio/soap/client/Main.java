@@ -18,59 +18,55 @@ import edu.up.bsi.cardapio.soap.server.AlimentoCardapio;
 import edu.up.bsi.cardapio.soap.server.FuncoesWS;
 import edu.up.bsi.cardapio.soap.server.FuncoesWSService;
 
-
-
-
 public class Main {
-	
+
 	private static final String WS_URL = "http://localhost:9080/alimentoCardapio?wsdl";
 
 	public static void main(String[] args) throws MalformedURLException {
 
 		Scanner sc = new Scanner(System.in);
-		
-		URL url = new URL(WS_URL);
-		QName qname = new QName("http://server.soap.cardapio.bsi.up.edu/","FuncoesWSService");
-		Service service = Service.create(url, qname);
-		
-		
-		FuncoesWS login = service.getPort(FuncoesWS.class);	
-		
-		 BindingProvider provider = (BindingProvider) login;
-		 Map<String, Object> req_ctx = provider.getRequestContext();
-	     req_ctx.put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, WS_URL);
-	     
 
-	     Map<String, List<String>> headers = new HashMap<String, List<String>>();
-	     headers.put("Username", Collections.singletonList("admin"));
-	     headers.put("Password",Collections.singletonList("admin123"));
-	     
-	     req_ctx.put(MessageContext.HTTP_REQUEST_HEADERS, headers);
-	     System.out.println(login.loginUsuario());
-		
+		URL url = new URL(WS_URL);
+		QName qname = new QName("http://server.soap.cardapio.bsi.up.edu/", "FuncoesWSService");
+		Service service = Service.create(url, qname);
+
+		FuncoesWS login = service.getPort(FuncoesWS.class);
+
+		BindingProvider provider = (BindingProvider) login;
+		Map<String, Object> req_ctx = provider.getRequestContext();
+		req_ctx.put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, WS_URL);
+
+		Map<String, List<String>> headers = new HashMap<String, List<String>>();
+
 		Boolean logado = false;
 
 		FuncoesWS fun = new FuncoesWSService().getFuncoesWSPort();
-		
 
 		int option = 0;
 
-		
 		String usuario = "";
 		String senha = "";
-		
+
+
+
 		while (logado == false) {
-			
+
 			System.out.println("MENU DE LOGIN:");
-			System.out.println("Digite seu Login e Senha para acessar o Sistema!");
+			System.out.println("Digite seu Login:");
+			usuario = sc.next();
+			System.out.println("Digite sua senha:");
+			senha = sc.next();
+			
+			headers.put("Username", Collections.singletonList(usuario));
+			headers.put("Password", Collections.singletonList(senha));
+			req_ctx.put(MessageContext.HTTP_REQUEST_HEADERS, headers);
+			logado = login.loginUsuario();
 			
 
-			while (logado) {
-
+			while (logado = true) {
 				System.out.println("MENU DE ACESSO:");
 				System.out.println("1 - LISTAR CARDAPIO:");
 				System.out.println("2 - LOGOUT:");
-				option = sc.nextInt();
 
 				switch (option) {
 				case 1:

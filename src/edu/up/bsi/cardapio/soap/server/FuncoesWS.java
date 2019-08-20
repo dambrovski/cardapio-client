@@ -27,14 +27,14 @@ public interface FuncoesWS {
     /**
      * 
      * @return
-     *     returns java.lang.String
+     *     returns boolean
      */
     @WebMethod(operationName = "login_usuario")
     @WebResult(name = "login_usuario_resultado", targetNamespace = "")
     @RequestWrapper(localName = "login_usuario", targetNamespace = "http://server.soap.cardapio.bsi.up.edu/", className = "edu.up.bsi.cardapio.soap.server.LoginUsuario")
     @ResponseWrapper(localName = "login_usuarioResponse", targetNamespace = "http://server.soap.cardapio.bsi.up.edu/", className = "edu.up.bsi.cardapio.soap.server.LoginUsuarioResponse")
     @Action(input = "http://server.soap.cardapio.bsi.up.edu/FuncoesWS/login_usuarioRequest", output = "http://server.soap.cardapio.bsi.up.edu/FuncoesWS/login_usuarioResponse")
-    public String loginUsuario();
+    public boolean loginUsuario();
 
     /**
      * 

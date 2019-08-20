@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="login_usuario_resultado" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="login_usuario_resultado" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -33,29 +33,21 @@ import javax.xml.bind.annotation.XmlType;
 public class LoginUsuarioResponse {
 
     @XmlElement(name = "login_usuario_resultado")
-    protected String loginUsuarioResultado;
+    protected boolean loginUsuarioResultado;
 
     /**
      * Obtém o valor da propriedade loginUsuarioResultado.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public String getLoginUsuarioResultado() {
+    public boolean isLoginUsuarioResultado() {
         return loginUsuarioResultado;
     }
 
     /**
      * Define o valor da propriedade loginUsuarioResultado.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setLoginUsuarioResultado(String value) {
+    public void setLoginUsuarioResultado(boolean value) {
         this.loginUsuarioResultado = value;
     }
 
