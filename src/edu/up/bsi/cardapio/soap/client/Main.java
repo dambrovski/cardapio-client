@@ -62,12 +62,20 @@ public class Main {
 			req_ctx.put(MessageContext.HTTP_REQUEST_HEADERS, headers);
 			logado = login.loginUsuario();
 			
+			if (logado) {
+				System.out.println("Logado com Sucesso!");
+				
+			}
+			else {
+				System.out.println("Verifique os dados que estão sendo digitados!");
+			}
 
-			while (logado = true) {
+			while (logado == true) {
 				System.out.println("MENU DE ACESSO:");
 				System.out.println("1 - LISTAR CARDAPIO:");
 				System.out.println("2 - LOGOUT:");
-
+				option = sc.nextInt();
+				
 				switch (option) {
 				case 1:
 					System.out.println("Opção 1 selecionada.");
@@ -83,8 +91,16 @@ public class Main {
 					break;
 
 				case 2:
-					System.out.println("Opção 2 selecionada.");
-					System.out.println("Usuário será deslogado.");
+					System.out.println(" ");
+					System.out.println(" ");
+					System.out.println(" ");
+					System.out.println(" ");
+					System.out.println(" ");
+					System.out.println(" ");
+					System.out.println(" ");
+					System.out.println(" ");
+					System.out.println(" ");
+					System.out.println("Usuário foi deslogado.");
 					logado = false;
 
 					break;
