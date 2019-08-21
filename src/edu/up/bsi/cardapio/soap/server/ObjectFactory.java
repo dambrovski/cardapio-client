@@ -24,7 +24,9 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _UmAlimentoResponse_QNAME = new QName("http://server.soap.cardapio.bsi.up.edu/", "um_alimentoResponse");
     private final static QName _LoginUsuario_QNAME = new QName("http://server.soap.cardapio.bsi.up.edu/", "login_usuario");
+    private final static QName _UmAlimento_QNAME = new QName("http://server.soap.cardapio.bsi.up.edu/", "um_alimento");
     private final static QName _TodosAlimentos_QNAME = new QName("http://server.soap.cardapio.bsi.up.edu/", "todos_alimentos");
     private final static QName _TodosAlimentosResponse_QNAME = new QName("http://server.soap.cardapio.bsi.up.edu/", "todos_alimentosResponse");
     private final static QName _LoginUsuarioResponse_QNAME = new QName("http://server.soap.cardapio.bsi.up.edu/", "login_usuarioResponse");
@@ -42,6 +44,22 @@ public class ObjectFactory {
      */
     public LoginUsuario createLoginUsuario() {
         return new LoginUsuario();
+    }
+
+    /**
+     * Create an instance of {@link UmAlimento }
+     * 
+     */
+    public UmAlimento createUmAlimento() {
+        return new UmAlimento();
+    }
+
+    /**
+     * Create an instance of {@link UmAlimentoResponse }
+     * 
+     */
+    public UmAlimentoResponse createUmAlimentoResponse() {
+        return new UmAlimentoResponse();
     }
 
     /**
@@ -77,12 +95,30 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link UmAlimentoResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server.soap.cardapio.bsi.up.edu/", name = "um_alimentoResponse")
+    public JAXBElement<UmAlimentoResponse> createUmAlimentoResponse(UmAlimentoResponse value) {
+        return new JAXBElement<UmAlimentoResponse>(_UmAlimentoResponse_QNAME, UmAlimentoResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link LoginUsuario }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://server.soap.cardapio.bsi.up.edu/", name = "login_usuario")
     public JAXBElement<LoginUsuario> createLoginUsuario(LoginUsuario value) {
         return new JAXBElement<LoginUsuario>(_LoginUsuario_QNAME, LoginUsuario.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link UmAlimento }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server.soap.cardapio.bsi.up.edu/", name = "um_alimento")
+    public JAXBElement<UmAlimento> createUmAlimento(UmAlimento value) {
+        return new JAXBElement<UmAlimento>(_UmAlimento_QNAME, UmAlimento.class, null, value);
     }
 
     /**

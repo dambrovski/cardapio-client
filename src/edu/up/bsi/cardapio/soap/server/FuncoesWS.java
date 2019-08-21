@@ -3,6 +3,7 @@ package edu.up.bsi.cardapio.soap.server;
 
 import java.util.List;
 import javax.jws.WebMethod;
+import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.xml.bind.annotation.XmlSeeAlso;
@@ -35,6 +36,21 @@ public interface FuncoesWS {
     @ResponseWrapper(localName = "login_usuarioResponse", targetNamespace = "http://server.soap.cardapio.bsi.up.edu/", className = "edu.up.bsi.cardapio.soap.server.LoginUsuarioResponse")
     @Action(input = "http://server.soap.cardapio.bsi.up.edu/FuncoesWS/login_usuarioRequest", output = "http://server.soap.cardapio.bsi.up.edu/FuncoesWS/login_usuarioResponse")
     public boolean loginUsuario();
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod(operationName = "um_alimento")
+    @WebResult(name = "um_alimento_resultado", targetNamespace = "")
+    @RequestWrapper(localName = "um_alimento", targetNamespace = "http://server.soap.cardapio.bsi.up.edu/", className = "edu.up.bsi.cardapio.soap.server.UmAlimento")
+    @ResponseWrapper(localName = "um_alimentoResponse", targetNamespace = "http://server.soap.cardapio.bsi.up.edu/", className = "edu.up.bsi.cardapio.soap.server.UmAlimentoResponse")
+    @Action(input = "http://server.soap.cardapio.bsi.up.edu/FuncoesWS/um_alimentoRequest", output = "http://server.soap.cardapio.bsi.up.edu/FuncoesWS/um_alimentoResponse")
+    public String umAlimento(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0);
 
     /**
      * 
