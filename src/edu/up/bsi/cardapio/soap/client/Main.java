@@ -2,8 +2,10 @@ package edu.up.bsi.cardapio.soap.client;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +17,7 @@ import javax.xml.ws.Service;
 import javax.xml.ws.handler.MessageContext;
 
 import edu.up.bsi.cardapio.soap.server.AlimentoCardapio;
+import edu.up.bsi.cardapio.soap.server.Date;
 import edu.up.bsi.cardapio.soap.server.FuncoesWS;
 import edu.up.bsi.cardapio.soap.server.FuncoesWSService;
 
@@ -46,9 +49,18 @@ public class Main {
 
 		String usuario = "";
 		String senha = "";
+		Date d = new Date();
 
+		SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+		formatador.format(d);
+		
+		d = fun.horaAtual(d);
+		
+		System.out.println(d);
 		while (logado == false) {
 
+
+			
 			System.out.println("MENU DE LOGIN:");
 			System.out.println("Digite seu Login:");
 			usuario = sc.next();

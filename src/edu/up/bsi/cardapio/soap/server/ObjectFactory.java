@@ -27,6 +27,8 @@ public class ObjectFactory {
     private final static QName _UmAlimentoResponse_QNAME = new QName("http://server.soap.cardapio.bsi.up.edu/", "um_alimentoResponse");
     private final static QName _LoginUsuario_QNAME = new QName("http://server.soap.cardapio.bsi.up.edu/", "login_usuario");
     private final static QName _UmAlimento_QNAME = new QName("http://server.soap.cardapio.bsi.up.edu/", "um_alimento");
+    private final static QName _HoraAtual_QNAME = new QName("http://server.soap.cardapio.bsi.up.edu/", "hora_atual");
+    private final static QName _HoraAtualResponse_QNAME = new QName("http://server.soap.cardapio.bsi.up.edu/", "hora_atualResponse");
     private final static QName _TodosAlimentos_QNAME = new QName("http://server.soap.cardapio.bsi.up.edu/", "todos_alimentos");
     private final static QName _TodosAlimentosResponse_QNAME = new QName("http://server.soap.cardapio.bsi.up.edu/", "todos_alimentosResponse");
     private final static QName _LoginUsuarioResponse_QNAME = new QName("http://server.soap.cardapio.bsi.up.edu/", "login_usuarioResponse");
@@ -71,6 +73,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link HoraAtual }
+     * 
+     */
+    public HoraAtual createHoraAtual() {
+        return new HoraAtual();
+    }
+
+    /**
+     * Create an instance of {@link HoraAtualResponse }
+     * 
+     */
+    public HoraAtualResponse createHoraAtualResponse() {
+        return new HoraAtualResponse();
+    }
+
+    /**
      * Create an instance of {@link LoginUsuarioResponse }
      * 
      */
@@ -84,6 +102,14 @@ public class ObjectFactory {
      */
     public TodosAlimentosResponse createTodosAlimentosResponse() {
         return new TodosAlimentosResponse();
+    }
+
+    /**
+     * Create an instance of {@link Date }
+     * 
+     */
+    public Date createDate() {
+        return new Date();
     }
 
     /**
@@ -119,6 +145,24 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://server.soap.cardapio.bsi.up.edu/", name = "um_alimento")
     public JAXBElement<UmAlimento> createUmAlimento(UmAlimento value) {
         return new JAXBElement<UmAlimento>(_UmAlimento_QNAME, UmAlimento.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link HoraAtual }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server.soap.cardapio.bsi.up.edu/", name = "hora_atual")
+    public JAXBElement<HoraAtual> createHoraAtual(HoraAtual value) {
+        return new JAXBElement<HoraAtual>(_HoraAtual_QNAME, HoraAtual.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link HoraAtualResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server.soap.cardapio.bsi.up.edu/", name = "hora_atualResponse")
+    public JAXBElement<HoraAtualResponse> createHoraAtualResponse(HoraAtualResponse value) {
+        return new JAXBElement<HoraAtualResponse>(_HoraAtualResponse_QNAME, HoraAtualResponse.class, null, value);
     }
 
     /**

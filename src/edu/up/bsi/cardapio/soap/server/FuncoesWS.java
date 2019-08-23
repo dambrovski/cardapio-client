@@ -64,4 +64,19 @@ public interface FuncoesWS {
     @Action(input = "http://server.soap.cardapio.bsi.up.edu/FuncoesWS/todos_alimentosRequest", output = "http://server.soap.cardapio.bsi.up.edu/FuncoesWS/todos_alimentosResponse")
     public List<AlimentoCardapio> todosAlimentos();
 
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns edu.up.bsi.cardapio.soap.server.Date
+     */
+    @WebMethod(operationName = "hora_atual")
+    @WebResult(name = "hora_atual_resultado", targetNamespace = "")
+    @RequestWrapper(localName = "hora_atual", targetNamespace = "http://server.soap.cardapio.bsi.up.edu/", className = "edu.up.bsi.cardapio.soap.server.HoraAtual")
+    @ResponseWrapper(localName = "hora_atualResponse", targetNamespace = "http://server.soap.cardapio.bsi.up.edu/", className = "edu.up.bsi.cardapio.soap.server.HoraAtualResponse")
+    @Action(input = "http://server.soap.cardapio.bsi.up.edu/FuncoesWS/hora_atualRequest", output = "http://server.soap.cardapio.bsi.up.edu/FuncoesWS/hora_atualResponse")
+    public Date horaAtual(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Date arg0);
+
 }
