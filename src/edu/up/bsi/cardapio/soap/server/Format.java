@@ -3,20 +3,20 @@ package edu.up.bsi.cardapio.soap.server;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java de um_alimento complex type.
+ * <p>Classe Java de format complex type.
  * 
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
- * &lt;complexType name="um_alimento">
+ * &lt;complexType name="format">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="arg0" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -26,27 +26,12 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "um_alimento", propOrder = {
-    "arg0"
+@XmlType(name = "format")
+@XmlSeeAlso({
+    DateFormat.class,
+    NumberFormat.class
 })
-public class UmAlimento {
+public abstract class Format {
 
-    protected int arg0;
-
-    /**
-     * Obtém o valor da propriedade arg0.
-     * 
-     */
-    public int getArg0() {
-        return arg0;
-    }
-
-    /**
-     * Define o valor da propriedade arg0.
-     * 
-     */
-    public void setArg0(int value) {
-        this.arg0 = value;
-    }
 
 }

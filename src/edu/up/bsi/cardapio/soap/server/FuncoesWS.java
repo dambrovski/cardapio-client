@@ -7,6 +7,7 @@ import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.ws.Action;
 import javax.xml.ws.RequestWrapper;
 import javax.xml.ws.ResponseWrapper;
@@ -20,7 +21,8 @@ import javax.xml.ws.ResponseWrapper;
  */
 @WebService(name = "FuncoesWS", targetNamespace = "http://server.soap.cardapio.bsi.up.edu/")
 @XmlSeeAlso({
-    ObjectFactory.class
+    edu.up.bsi.cardapio.soap.server.ObjectFactory.class,
+    net.java.dev.jaxb.array.ObjectFactory.class
 })
 public interface FuncoesWS {
 
@@ -41,6 +43,21 @@ public interface FuncoesWS {
      * 
      * @param arg0
      * @return
+     *     returns edu.up.bsi.cardapio.soap.server.SimpleDateFormat
+     */
+    @WebMethod(operationName = "hora_atual")
+    @WebResult(name = "hora_atual_resultado", targetNamespace = "")
+    @RequestWrapper(localName = "hora_atual", targetNamespace = "http://server.soap.cardapio.bsi.up.edu/", className = "edu.up.bsi.cardapio.soap.server.HoraAtual")
+    @ResponseWrapper(localName = "hora_atualResponse", targetNamespace = "http://server.soap.cardapio.bsi.up.edu/", className = "edu.up.bsi.cardapio.soap.server.HoraAtualResponse")
+    @Action(input = "http://server.soap.cardapio.bsi.up.edu/FuncoesWS/hora_atualRequest", output = "http://server.soap.cardapio.bsi.up.edu/FuncoesWS/hora_atualResponse")
+    public SimpleDateFormat horaAtual(
+        @WebParam(name = "arg0", targetNamespace = "")
+        XMLGregorianCalendar arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
      *     returns java.lang.String
      */
     @WebMethod(operationName = "um_alimento")
@@ -54,6 +71,21 @@ public interface FuncoesWS {
 
     /**
      * 
+     * @param arg0
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod(operationName = "dados_empresa")
+    @WebResult(name = "dados_empresa_resultado", targetNamespace = "")
+    @RequestWrapper(localName = "dados_empresa", targetNamespace = "http://server.soap.cardapio.bsi.up.edu/", className = "edu.up.bsi.cardapio.soap.server.DadosEmpresa")
+    @ResponseWrapper(localName = "dados_empresaResponse", targetNamespace = "http://server.soap.cardapio.bsi.up.edu/", className = "edu.up.bsi.cardapio.soap.server.DadosEmpresaResponse")
+    @Action(input = "http://server.soap.cardapio.bsi.up.edu/FuncoesWS/dados_empresaRequest", output = "http://server.soap.cardapio.bsi.up.edu/FuncoesWS/dados_empresaResponse")
+    public String dadosEmpresa(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
+
+    /**
+     * 
      * @return
      *     returns java.util.List<edu.up.bsi.cardapio.soap.server.AlimentoCardapio>
      */
@@ -63,20 +95,5 @@ public interface FuncoesWS {
     @ResponseWrapper(localName = "todos_alimentosResponse", targetNamespace = "http://server.soap.cardapio.bsi.up.edu/", className = "edu.up.bsi.cardapio.soap.server.TodosAlimentosResponse")
     @Action(input = "http://server.soap.cardapio.bsi.up.edu/FuncoesWS/todos_alimentosRequest", output = "http://server.soap.cardapio.bsi.up.edu/FuncoesWS/todos_alimentosResponse")
     public List<AlimentoCardapio> todosAlimentos();
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns edu.up.bsi.cardapio.soap.server.Date
-     */
-    @WebMethod(operationName = "hora_atual")
-    @WebResult(name = "hora_atual_resultado", targetNamespace = "")
-    @RequestWrapper(localName = "hora_atual", targetNamespace = "http://server.soap.cardapio.bsi.up.edu/", className = "edu.up.bsi.cardapio.soap.server.HoraAtual")
-    @ResponseWrapper(localName = "hora_atualResponse", targetNamespace = "http://server.soap.cardapio.bsi.up.edu/", className = "edu.up.bsi.cardapio.soap.server.HoraAtualResponse")
-    @Action(input = "http://server.soap.cardapio.bsi.up.edu/FuncoesWS/hora_atualRequest", output = "http://server.soap.cardapio.bsi.up.edu/FuncoesWS/hora_atualResponse")
-    public Date horaAtual(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Date arg0);
 
 }

@@ -24,9 +24,11 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _DadosEmpresaResponse_QNAME = new QName("http://server.soap.cardapio.bsi.up.edu/", "dados_empresaResponse");
     private final static QName _UmAlimentoResponse_QNAME = new QName("http://server.soap.cardapio.bsi.up.edu/", "um_alimentoResponse");
     private final static QName _LoginUsuario_QNAME = new QName("http://server.soap.cardapio.bsi.up.edu/", "login_usuario");
     private final static QName _UmAlimento_QNAME = new QName("http://server.soap.cardapio.bsi.up.edu/", "um_alimento");
+    private final static QName _DadosEmpresa_QNAME = new QName("http://server.soap.cardapio.bsi.up.edu/", "dados_empresa");
     private final static QName _HoraAtual_QNAME = new QName("http://server.soap.cardapio.bsi.up.edu/", "hora_atual");
     private final static QName _HoraAtualResponse_QNAME = new QName("http://server.soap.cardapio.bsi.up.edu/", "hora_atualResponse");
     private final static QName _TodosAlimentos_QNAME = new QName("http://server.soap.cardapio.bsi.up.edu/", "todos_alimentos");
@@ -38,6 +40,14 @@ public class ObjectFactory {
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link DadosEmpresaResponse }
+     * 
+     */
+    public DadosEmpresaResponse createDadosEmpresaResponse() {
+        return new DadosEmpresaResponse();
     }
 
     /**
@@ -89,6 +99,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DadosEmpresa }
+     * 
+     */
+    public DadosEmpresa createDadosEmpresa() {
+        return new DadosEmpresa();
+    }
+
+    /**
      * Create an instance of {@link LoginUsuarioResponse }
      * 
      */
@@ -105,19 +123,44 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Date }
-     * 
-     */
-    public Date createDate() {
-        return new Date();
-    }
-
-    /**
      * Create an instance of {@link AlimentoCardapio }
      * 
      */
     public AlimentoCardapio createAlimentoCardapio() {
         return new AlimentoCardapio();
+    }
+
+    /**
+     * Create an instance of {@link DateFormatSymbols }
+     * 
+     */
+    public DateFormatSymbols createDateFormatSymbols() {
+        return new DateFormatSymbols();
+    }
+
+    /**
+     * Create an instance of {@link SimpleDateFormat }
+     * 
+     */
+    public SimpleDateFormat createSimpleDateFormat() {
+        return new SimpleDateFormat();
+    }
+
+    /**
+     * Create an instance of {@link Currency }
+     * 
+     */
+    public Currency createCurrency() {
+        return new Currency();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DadosEmpresaResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server.soap.cardapio.bsi.up.edu/", name = "dados_empresaResponse")
+    public JAXBElement<DadosEmpresaResponse> createDadosEmpresaResponse(DadosEmpresaResponse value) {
+        return new JAXBElement<DadosEmpresaResponse>(_DadosEmpresaResponse_QNAME, DadosEmpresaResponse.class, null, value);
     }
 
     /**
@@ -145,6 +188,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://server.soap.cardapio.bsi.up.edu/", name = "um_alimento")
     public JAXBElement<UmAlimento> createUmAlimento(UmAlimento value) {
         return new JAXBElement<UmAlimento>(_UmAlimento_QNAME, UmAlimento.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DadosEmpresa }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server.soap.cardapio.bsi.up.edu/", name = "dados_empresa")
+    public JAXBElement<DadosEmpresa> createDadosEmpresa(DadosEmpresa value) {
+        return new JAXBElement<DadosEmpresa>(_DadosEmpresa_QNAME, DadosEmpresa.class, null, value);
     }
 
     /**

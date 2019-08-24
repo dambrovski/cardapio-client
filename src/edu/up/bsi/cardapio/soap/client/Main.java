@@ -5,7 +5,7 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
-
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,7 +17,7 @@ import javax.xml.ws.Service;
 import javax.xml.ws.handler.MessageContext;
 
 import edu.up.bsi.cardapio.soap.server.AlimentoCardapio;
-import edu.up.bsi.cardapio.soap.server.Date;
+
 import edu.up.bsi.cardapio.soap.server.FuncoesWS;
 import edu.up.bsi.cardapio.soap.server.FuncoesWSService;
 
@@ -53,14 +53,12 @@ public class Main {
 
 		SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
 		formatador.format(d);
-		
-		d = fun.horaAtual(d);
-		
-		System.out.println(d);
+
+		// d = fun.horaAtual(d);
+
+		// System.out.println(d);
 		while (logado == false) {
 
-
-			
 			System.out.println("MENU DE LOGIN:");
 			System.out.println("Digite seu Login:");
 			usuario = sc.next();
@@ -83,7 +81,8 @@ public class Main {
 				System.out.println("MENU DE ACESSO:");
 				System.out.println("1 - VER CARDAPIO:");
 				System.out.println("2 - SELECIONAR UM PRODUTO DO CARDAPIO:");
-				System.out.println("3 - LOGOUT:");
+				System.out.println("3 - VER DADOS DA EMPRESA:");
+				System.out.println("4 - LOGOUT:");
 				option = sc.nextInt();
 				int codigoLanche;
 
@@ -113,6 +112,14 @@ public class Main {
 					break;
 
 				case 3:
+
+					String dados = "";
+					dados = fun.dadosEmpresa(dados);
+					System.out.println(dados);
+
+					break;
+
+				case 4:
 
 					System.out.println(" ");
 					System.out.println(" ");

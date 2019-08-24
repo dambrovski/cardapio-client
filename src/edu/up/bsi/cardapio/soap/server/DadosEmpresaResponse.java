@@ -8,16 +8,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java de hora_atualResponse complex type.
+ * <p>Classe Java de dados_empresaResponse complex type.
  * 
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
- * &lt;complexType name="hora_atualResponse">
+ * &lt;complexType name="dados_empresaResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="hora_atual_resultado" type="{http://server.soap.cardapio.bsi.up.edu/}simpleDateFormat" minOccurs="0"/>
+ *         &lt;element name="dados_empresa_resultado" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -27,36 +27,36 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "hora_atualResponse", propOrder = {
-    "horaAtualResultado"
+@XmlType(name = "dados_empresaResponse", propOrder = {
+    "dadosEmpresaResultado"
 })
-public class HoraAtualResponse {
+public class DadosEmpresaResponse {
 
-    @XmlElement(name = "hora_atual_resultado")
-    protected SimpleDateFormat horaAtualResultado;
+    @XmlElement(name = "dados_empresa_resultado")
+    protected String dadosEmpresaResultado;
 
     /**
-     * Obtém o valor da propriedade horaAtualResultado.
+     * Obtém o valor da propriedade dadosEmpresaResultado.
      * 
      * @return
      *     possible object is
-     *     {@link SimpleDateFormat }
+     *     {@link String }
      *     
      */
-    public SimpleDateFormat getHoraAtualResultado() {
-        return horaAtualResultado;
+    public String getDadosEmpresaResultado() {
+        return dadosEmpresaResultado;
     }
 
     /**
-     * Define o valor da propriedade horaAtualResultado.
+     * Define o valor da propriedade dadosEmpresaResultado.
      * 
      * @param value
      *     allowed object is
-     *     {@link SimpleDateFormat }
+     *     {@link String }
      *     
      */
-    public void setHoraAtualResultado(SimpleDateFormat value) {
-        this.horaAtualResultado = value;
+    public void setDadosEmpresaResultado(String value) {
+        this.dadosEmpresaResultado = value;
     }
 
 }
