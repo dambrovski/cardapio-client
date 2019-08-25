@@ -53,8 +53,8 @@ public class Main {
 
 		
 		
-		hora = fun.horaAtual();
-		System.out.println(hora);
+		//hora = fun.horaAtual();
+		//System.out.println(hora);
 		
 		while (logado == false) {
 
