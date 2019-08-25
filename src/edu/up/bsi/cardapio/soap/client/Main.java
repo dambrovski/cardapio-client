@@ -49,14 +49,13 @@ public class Main {
 
 		String usuario = "";
 		String senha = "";
-		Date d = new Date();
+		Date hora = new Date();
 
-		SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
-		formatador.format(d);
-
-		// d = fun.horaAtual(d);
-
-		// System.out.println(d);
+		
+		
+		hora = fun.horaAtual();
+		System.out.println(hora);
+		
 		while (logado == false) {
 
 			System.out.println("MENU DE LOGIN:");
