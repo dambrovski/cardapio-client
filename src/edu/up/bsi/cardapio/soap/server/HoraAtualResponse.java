@@ -1,6 +1,8 @@
 
 package edu.up.bsi.cardapio.soap.server;
 
+import java.util.Date;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -36,17 +38,17 @@ public class HoraAtualResponse {
 
     @XmlElement(name = "hora_atual_resultado")
     @XmlSchemaType(name = "dateTime")
-    protected XMLGregorianCalendar horaAtualResultado;
+    protected Date horaAtualResultado;
 
     /**
      * Obtém o valor da propriedade horaAtualResultado.
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public XMLGregorianCalendar getHoraAtualResultado() {
+    public Date getHoraAtualResultado() {
         return horaAtualResultado;
     }
 
@@ -58,7 +60,7 @@ public class HoraAtualResponse {
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public void setHoraAtualResultado(XMLGregorianCalendar value) {
+    public void setHoraAtualResultado(Date value) {
         this.horaAtualResultado = value;
     }
 

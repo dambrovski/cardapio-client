@@ -1,13 +1,13 @@
 
 package edu.up.bsi.cardapio.soap.server;
 
+import java.util.Date;
 import java.util.List;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.xml.bind.annotation.XmlSeeAlso;
-import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.ws.Action;
 import javax.xml.ws.RequestWrapper;
 import javax.xml.ws.ResponseWrapper;
@@ -40,18 +40,6 @@ public interface FuncoesWS {
 
     /**
      * 
-     * @return
-     *     returns javax.xml.datatype.XMLGregorianCalendar
-     */
-    @WebMethod(operationName = "hora_atual")
-    @WebResult(name = "hora_atual_resultado", targetNamespace = "")
-    @RequestWrapper(localName = "hora_atual", targetNamespace = "http://server.soap.cardapio.bsi.up.edu/", className = "edu.up.bsi.cardapio.soap.server.HoraAtual")
-    @ResponseWrapper(localName = "hora_atualResponse", targetNamespace = "http://server.soap.cardapio.bsi.up.edu/", className = "edu.up.bsi.cardapio.soap.server.HoraAtualResponse")
-    @Action(input = "http://server.soap.cardapio.bsi.up.edu/FuncoesWS/hora_atualRequest", output = "http://server.soap.cardapio.bsi.up.edu/FuncoesWS/hora_atualResponse")
-    public XMLGregorianCalendar horaAtual();
-
-    /**
-     * 
      * @param arg0
      * @return
      *     returns java.lang.String
@@ -67,6 +55,31 @@ public interface FuncoesWS {
 
     /**
      * 
+     * @return
+     *     returns java.util.List<edu.up.bsi.cardapio.soap.server.AlimentoCardapio>
+     */
+    @WebMethod(operationName = "todos_alimentos")
+    @WebResult(name = "todos_alimentos_resultado", targetNamespace = "")
+    @RequestWrapper(localName = "todos_alimentos", targetNamespace = "http://server.soap.cardapio.bsi.up.edu/", className = "edu.up.bsi.cardapio.soap.server.TodosAlimentos")
+    @ResponseWrapper(localName = "todos_alimentosResponse", targetNamespace = "http://server.soap.cardapio.bsi.up.edu/", className = "edu.up.bsi.cardapio.soap.server.TodosAlimentosResponse")
+    @Action(input = "http://server.soap.cardapio.bsi.up.edu/FuncoesWS/todos_alimentosRequest", output = "http://server.soap.cardapio.bsi.up.edu/FuncoesWS/todos_alimentosResponse")
+    public List<AlimentoCardapio> todosAlimentos();
+
+    /**
+     * 
+     * @return
+     *     returns java.util.Date
+     */
+  
+    @WebMethod(operationName = "hora_atual")
+    @WebResult(name = "hora_atual_resultado", targetNamespace = "")
+    @RequestWrapper(localName = "hora_atual", targetNamespace = "http://server.soap.cardapio.bsi.up.edu/", className = "edu.up.bsi.cardapio.soap.server.HoraAtual")
+    @ResponseWrapper(localName = "hora_atualResponse", targetNamespace = "http://server.soap.cardapio.bsi.up.edu/", className = "edu.up.bsi.cardapio.soap.server.HoraAtualResponse")
+    @Action(input = "http://server.soap.cardapio.bsi.up.edu/FuncoesWS/hora_atualRequest", output = "http://server.soap.cardapio.bsi.up.edu/FuncoesWS/hora_atualResponse")
+    public Date horaAtual();
+
+    /**
+     * 
      * @param arg0
      * @return
      *     returns java.lang.String
@@ -79,17 +92,5 @@ public interface FuncoesWS {
     public String dadosEmpresa(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<edu.up.bsi.cardapio.soap.server.AlimentoCardapio>
-     */
-    @WebMethod(operationName = "todos_alimentos")
-    @WebResult(name = "todos_alimentos_resultado", targetNamespace = "")
-    @RequestWrapper(localName = "todos_alimentos", targetNamespace = "http://server.soap.cardapio.bsi.up.edu/", className = "edu.up.bsi.cardapio.soap.server.TodosAlimentos")
-    @ResponseWrapper(localName = "todos_alimentosResponse", targetNamespace = "http://server.soap.cardapio.bsi.up.edu/", className = "edu.up.bsi.cardapio.soap.server.TodosAlimentosResponse")
-    @Action(input = "http://server.soap.cardapio.bsi.up.edu/FuncoesWS/todos_alimentosRequest", output = "http://server.soap.cardapio.bsi.up.edu/FuncoesWS/todos_alimentosResponse")
-    public List<AlimentoCardapio> todosAlimentos();
 
 }

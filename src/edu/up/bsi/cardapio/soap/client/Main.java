@@ -6,11 +6,14 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.namespace.QName;
 import javax.xml.ws.BindingProvider;
 import javax.xml.ws.Service;
@@ -49,16 +52,22 @@ public class Main {
 
 		String usuario = "";
 		String senha = "";
-		Date hora = new Date();
+	
+		
 
-		
-		
-		//hora = fun.horaAtual();
-		//System.out.println(hora);
 		
 		while (logado == false) {
+			System.out.println(" ");
+			System.out.println(" ");
+			System.out.println(" ");
+			System.out.println(" ");
+			System.out.println(" ");
+			System.out.println(" ");
+			Date data2 = new Date();
+			data2 = fun.horaAtual();
+			System.out.println(data2);
 
-			System.out.println("MENU DE LOGIN:");
+			System.out.println("---------------------MENU DE LOGIN--------------------");
 			System.out.println("Digite seu Login:");
 			usuario = sc.next();
 			System.out.println("Digite sua senha:");
